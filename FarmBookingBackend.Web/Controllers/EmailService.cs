@@ -6,7 +6,7 @@ using FarmBookingBackend.Domain.Dto;
 namespace FarmBookingBackend.Web.Controllers;
 
 [Controller]
-[Route("api/[Controller]")]
+[Route("Api/[Controller]")]
 public class EmailController : ControllerBase
 {
 
@@ -16,7 +16,7 @@ public class EmailController : ControllerBase
     {
         _mailingService = mailingService;
     }
-    [HttpPost("send")]
+    [HttpPost("SendEmail")]
     public async Task<IActionResult> SendMail([FromForm] MailRequestModel dto)
     {
         await _mailingService.SendEmailAsync(dto.ToEmail, dto.Subject, dto.Message);

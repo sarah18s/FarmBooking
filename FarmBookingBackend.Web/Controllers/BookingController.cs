@@ -19,7 +19,7 @@ public class BookingController(IBookingService bookingService) : ControllerBase
         return Ok(result);
     }
 
-    [HttpPost("create-book")]
+    [HttpPost("Create")]
     public async Task<IActionResult> CreateBook([FromBody] BookingModel request)
     {
         return Ok( _bookingService.CreateBooking(request));

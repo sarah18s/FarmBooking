@@ -56,9 +56,9 @@ public class FarmController(IFarmService _farmService) : ControllerBase
         return Ok(result);
     }
     [HttpGet("GetFarmsAvailabilityByDate")]
-    public IActionResult GetFarmsAvailabilityByDate([FromQuery] DateTime checkInDate )
+    public IActionResult GetFarmsAvailabilityByDate([FromQuery] DateTime checkInDate , [FromQuery] DateTime checkOutDate)
     {
-        var result = _farmService.GetFarmsAvailabilityByDate( checkInDate);
+        var result = _farmService.GetFarmsAvailabilityByDate( checkInDate , checkOutDate);
         return Ok(result);
     }
 

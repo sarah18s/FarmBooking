@@ -142,7 +142,7 @@ public class FarmService(IUnitOfWork unitOfWork, IMapper mapper) : IFarmService
         return new Result { Code = 200, Response = result };
     }
 
-    public Result GetFarmsAvailabilityByDate(DateTime checkInDate)
+    public Result GetFarmsAvailabilityByDate(DateTime checkInDate , DateTime checkOutDate)
     {
       
         if( checkInDate <= DateTime.Now )
@@ -154,7 +154,7 @@ public class FarmService(IUnitOfWork unitOfWork, IMapper mapper) : IFarmService
 
         List<Farm> avilableFarms = [];
         foreach ( var farm in farmList) {
-            var Booking = IsFarmAvailableByDate(farm.Id,checkInDate );
+            var Booking = IsFarmAvailableByDate(farm.Id,checkInDate , checkOutDate);
             if(Booking.Code! == 200)
             {
                 avilableFarms.Add(farm);
@@ -168,12 +168,15 @@ public class FarmService(IUnitOfWork unitOfWork, IMapper mapper) : IFarmService
         return new Result { Code = 200, Response = avilableFarms };
     }
 
-    public Result IsFarmAvailableByDate(int farmId, DateTime checkInDate)
+    public Result IsFarmAvailableByDate(int farmId, DateTime checkInDate , DateTime checkOutDate)
     {
        
         var BookedFarms = _unitOfWork.Booking.GetAll(u => u.Status == Status.CONFIRMED.ToString() 
         && u.FarmId == farmId &&
-        (checkInDate <= u.CheckOutDate))?.Count();
+        ((checkInDate >= u.CheckInDate && checkInDate <= u.CheckOutDate)  ||
+        (checkOutDate >= u.CheckInDate && checkOutDate <= u.CheckOutDate) || 
+        checkInDate <= u.CheckInDate && checkOutDate >= u.CheckOutDate
+        ))?.Count();
 
         if(BookedFarms == 0)
         {

@@ -10,6 +10,5 @@ public interface IFarmService
     Task<Result> Create(FarmModel farm);
     Task<Result> Update(FarmModel farm , int id);
     Result Delete(int id);
-    Result GetFarmsAvailabilityByDate(DateTime checkInDate);
-   
+    Result GetFarmsAvailabilityByDate(DateTime checkInDate ,  DateTime checkOutDate);  
 }
