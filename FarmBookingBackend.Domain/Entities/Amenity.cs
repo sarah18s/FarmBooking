@@ -11,8 +11,8 @@ public class Amenity
     public string Name { get; set; }
     public string? Description { get; set; }
     [ForeignKey("Farm")]
-    public int FarmId {  get; set; }
-    [JsonIgnore , ValidateNever]
+    public int FarmId { get; set; }
+    [JsonIgnore, ValidateNever]
     public Farm Farm { get; set; }
     [JsonIgnore]
     public bool IsAvailable { get; set; } = true;

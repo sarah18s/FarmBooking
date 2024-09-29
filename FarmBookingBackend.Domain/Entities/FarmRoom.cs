@@ -12,7 +12,7 @@ public class FarmRoom
     public int FarmRoom_Number { get; set; }
     [ForeignKey("Farm")]
     public int FarmId { get; set; }
-    [ValidateNever , JsonIgnore]
+    [ValidateNever, JsonIgnore]
     public Farm Farm { get; set; }
     public string SpecialDetails { get; set; }
     [JsonIgnore]

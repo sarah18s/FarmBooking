@@ -12,7 +12,6 @@ public class AccountService : IAccountServices
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly RoleManager<IdentityRole> _roleManager;
-    private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly IMapper _mapper;
     private readonly IJWTServices _jWT;
     private readonly IEmailService _emailService;
@@ -29,7 +28,6 @@ public class AccountService : IAccountServices
         _roleManager = roleManager;
         _mapper = mapper;
         _jWT = jWT;
-        _signInManager = signInManager;
         _emailService = emailService;
     }
 
@@ -76,12 +74,7 @@ public class AccountService : IAccountServices
         return result;
     }
 
-    public async Task<Result> Logout()
-    {
-        await _signInManager.SignOutAsync();
-        return new Result { Code = 200 };
-    }
-
+   
     public async Task<Result> Register(RegisterModel model)
     {
         Result result = new();

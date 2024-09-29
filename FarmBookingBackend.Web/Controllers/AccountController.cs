@@ -33,12 +33,6 @@ namespace FarmBookingBackend.Web.Controllers
             return Ok(result);
         }
 
-        [HttpPost("Logout")]
-        public async Task<IActionResult> Logout()
-        {
-            var result = await _accountServices.Logout();
-            return Ok(result);
-        }
         //[Authorize(Roles = "Admin")]
         [HttpGet("AddAdmin")]
         public async Task<IActionResult> AddAdmin([FromQuery]String email)
