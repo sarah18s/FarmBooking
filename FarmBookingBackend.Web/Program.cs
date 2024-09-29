@@ -7,7 +7,7 @@ using FarmBookingBackend.Application.Services.Implemintation;
 using FarmBookingBackend.Application.Services.Interface;
 using FarmBookingBackend.Domain.Entities;
 using FarmBookingBackend.Domain.Helper;
-using FarmBookingBackend.Infrastructure.Context;
+using FarmBookingBackend.Infrastructure.Data;
 using FarmBookingBackend.Infrastructure.Repository.Implemintaion;
 using FarmBookingBackend.Infrastructure.Repository.Interface;
 using FarmBookingBackend.Infrastructure.Repository.UnitOfWork;

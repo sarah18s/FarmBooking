@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using FarmBookingBackend.Infrastructure.Context;
+using FarmBookingBackend.Infrastructure.Data;
 using FarmBookingBackend.Infrastructure.Repository.Interface;
 
 namespace FarmBookingBackend.Infrastructure.Repository.Implemintaion

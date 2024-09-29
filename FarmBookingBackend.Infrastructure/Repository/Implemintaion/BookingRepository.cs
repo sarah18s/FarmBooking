@@ -1,5 +1,5 @@
 ﻿using FarmBookingBackend.Domain.Entities;
-using FarmBookingBackend.Infrastructure.Context;
+using FarmBookingBackend.Infrastructure.Data;
 using FarmBookingBackend.Infrastructure.Repository.Interface;
 
 namespace FarmBookingBackend.Infrastructure.Repository.Implemintaion
